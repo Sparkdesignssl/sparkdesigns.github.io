@@ -87,16 +87,6 @@
 
         .contact {
             background: #000;
-            display: none; /* Initially hide the contact section */
-        }
-
-        .contact h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            display: none; /* Initially hide the contact info */
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
@@ -106,7 +96,7 @@
 <div class="navbar">
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a onclick="showContact()">Contact Us</a>
+    <a onclick="toggleContact()">Contact Us</a>
 </div>
 
 <section class="hero" id="about">
@@ -136,7 +126,6 @@
     </div>
 </section>
 
-
 <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <p>Ready to elevate your brand with our design expertise? Contact us for inquiries and collaborations.</p>
@@ -147,16 +136,16 @@
 </section>
 
 <script>
-    function showContact() {
+    document.addEventListener("DOMContentLoaded", function() {
         var contactSection = document.getElementById('contact');
-        var contactInfo = document.getElementById('contactInfo');
-        
-        // Toggle the display of the contact section and contact info
+        contactSection.style.display = 'none';
+    });
+
+    function toggleContact() {
+        var contactSection = document.getElementById('contact');
         contactSection.style.display = (contactSection.style.display === 'none') ? 'block' : 'none';
-        contactInfo.style.display = (contactInfo.style.display === 'none') ? 'block' : 'none';
     }
 </script>
 
 </body>
 </html>
-
