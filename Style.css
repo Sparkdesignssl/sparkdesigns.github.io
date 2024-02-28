@@ -2,19 +2,19 @@ body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-}
-
-.hero {
-    background: url('sparklogo2.png') no-repeat center center fixed;
+    background: #000 url('sparkbg.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
-    text-align: center;
-    padding: 100px 0;
 }
 
 .logo img {
     max-width: 150px;
     height: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 0;
 }
 
 .hero h1 {
@@ -28,7 +28,7 @@ body {
 }
 
 .services {
-    background: #f2f2f2;
+    background: #000;
     padding: 50px 0;
     text-align: center;
 }
@@ -39,12 +39,12 @@ body {
 }
 
 .service-item h2 {
-    color: #333;
+    color: #fff;
     font-size: 1.5em;
 }
 
 .service-item p {
-    color: #666;
+    color: #ccc;
     font-size: 1.1em;
 }
 
@@ -53,20 +53,24 @@ body {
     padding: 50px 0;
 }
 
-.portfolio-images img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+.portfolio-images p {
+    color: #fff;
+    font-size: 1.2em;
     margin: 10px;
 }
 
 .contact {
-    background: #333;
-    color: #fff;
+    background: #000;
     text-align: center;
     padding: 50px 0;
 }
 
 .contact h2 {
     font-size: 2em;
-    margin-bottom: 20
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
