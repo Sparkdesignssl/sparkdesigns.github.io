@@ -14,9 +14,28 @@
             color: #fff;
         }
 
+        .wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .border {
+            border: 10px solid transparent; /* Set the border to transparent */
+            background-clip: padding-box;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 45%, transparent 45%, transparent 55%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0.3) 100%);
+            /* Add a gradient effect around the edges of the border */
+        }
+
         .navbar {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-around;
+            align-items: center;
             padding: 20px;
             background: #333;
         }
@@ -24,8 +43,6 @@
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
             font-size: 1.2em;
             cursor: pointer;
             transition: color 0.3s;
@@ -36,12 +53,12 @@
         }
 
         .logo img {
-            max-width: 300px;
+            max-width: 100%;
             height: auto;
         }
 
-        .hero, .services, .contact {
-            padding: 100px 20px;
+        section {
+            padding: 50px 20px;
             text-align: center;
         }
 
@@ -73,66 +90,50 @@
             color: #ccc;
             font-size: 1.1em;
         }
-        
+
         .contact {
             background: #000;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        .hidden {
-            display: none;
+        .visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
 </head>
 <body>
 
-<div class="navbar">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a onclick="toggleContact()">Contact Us</a>
+<div class="wrapper">
+    <div class="border"></div>
+    <div class="navbar">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+
+    <!-- Your existing HTML content... -->
 </div>
 
-<section class="hero" id="about">
-    <div class="logo">
-        <img src="sparklogo2.png" alt="Spark Designs Logo">
-    </div>
-    <h1>Welcome to Spark Designs</h1>
-    <p>Your destination for innovative graphic designs</p>
-</section>
-
-<section class="services" id="services">
-    <div class="service-item">
-        <h2>Logo Design</h2>
-        <p>Craft a unique and memorable brand identity with our creative logo design services.</p>
-    </div>
-    <div class="service-item">
-        <h2>Web Graphics</h2>
-        <p>Enhance your online presence with captivating web graphics tailored to your brand.</p>
-    </div>
-    <div class="service-item">
-        <h2>Print Materials</h2>
-        <p>Create professional and eye-catching print materials for your marketing needs.</p>
-    </div>
-    <div class="service-item">
-        <h2>Brand Identity</h2>
-        <p>Build a cohesive and recognizable brand image that resonates with your audience.</p>
-    </div>
-</section>
-
-<section class="contact hidden" id="contact">
-    <h2>Contact Us</h2>
-    <p>Ready to elevate your brand with our design expertise? Contact us for inquiries and collaborations.</p>
-    <div class="contact-info" id="contactInfo">
-        <p>Email: info@sparkdesigns.com</p>
-        <p>Phone: +1 (123) 456-7890</p>
-    </div>
-</section>
-
 <script>
-    function toggleContact() {
+    window.addEventListener("scroll", function() {
         var contactSection = document.getElementById('contact');
-        contactSection.classList.toggle('hidden');
-    }
+        var offset = contactSection.offsetTop - window.innerHeight + 100;
+
+        if (window.scrollY > offset) {
+            contactSection.classList.add('visible');
+        } else {
+            contactSection.classList.remove('visible');
+        }
+    });
 </script>
 
 </body>
