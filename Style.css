@@ -7,9 +7,18 @@ body {
     color: #fff;
 }
 
-header {
+.logo {
     text-align: center;
     padding: 2em;
+}
+
+.logo img {
+    max-width: 200px; /* Adjust the size as needed */
+    height: auto;
+}
+
+header {
+    text-align: center;
 }
 
 header img {
@@ -56,6 +65,39 @@ nav {
     background-color: #808080; /* Grey color */
 }
 
+.content, .services, .portfolio, .contact {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.content h1, .services h2, .portfolio h2, .contact h2 {
+    color: #f39c12; /* Orange color */
+}
+
+.content p, .services ul, .portfolio div, .contact p {
+    color: #fff;
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services li {
+    margin-bottom: 10px;
+}
+
+.portfolio-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
 /* Media query for mobile responsiveness */
 @media only screen and (max-width: 768px) {
     .menu-icon {
@@ -78,4 +120,3 @@ nav {
         display: flex;
     }
 }
-
