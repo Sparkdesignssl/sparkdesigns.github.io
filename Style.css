@@ -2,121 +2,71 @@ body {
     font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
-    background: url('your-image-url.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
 }
 
-.logo {
+.hero {
+    background: url('sparklogo2.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
     text-align: center;
-    padding: 2em;
+    padding: 100px 0;
 }
 
 .logo img {
-    max-width: 200px; /* Adjust the size as needed */
+    max-width: 150px;
     height: auto;
 }
 
-header {
+.hero h1 {
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.services {
+    background: #f2f2f2;
+    padding: 50px 0;
     text-align: center;
 }
 
-header img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
+.service-item {
+    max-width: 600px;
+    margin: 0 auto 40px;
 }
 
-nav {
+.service-item h2 {
+    color: #333;
+    font-size: 1.5em;
+}
+
+.service-item p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.portfolio {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 1em;
-}
-
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    color: #808080; /* Grey color */
-    display: none;
-}
-
-.menu {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu li {
-    margin: 0 1em;
-}
-
-.menu a {
-    color: #808080; /* Grey color */
-    text-decoration: none;
-    padding: 1em;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.menu a:hover {
-    background-color: #808080; /* Grey color */
-}
-
-.content, .services, .portfolio, .contact {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.content h1, .services h2, .portfolio h2, .contact h2 {
-    color: #f39c12; /* Orange color */
-}
-
-.content p, .services ul, .portfolio div, .contact p {
-    color: #fff;
-}
-
-.services ul {
-    list-style: none;
-    padding: 0;
-}
-
-.services li {
-    margin-bottom: 10px;
+    padding: 50px 0;
 }
 
 .portfolio-images img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    border-radius: 10px;
+    margin: 10px;
 }
 
-/* Media query for mobile responsiveness */
-@media only screen and (max-width: 768px) {
-    .menu-icon {
-        display: block;
-    }
-
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.7);
-        text-align: center;
-        z-index: 1;
-    }
-
-    .menu.active {
-        display: flex;
-    }
+.contact {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
 }
+
+.contact h2 {
+    font-size: 2em;
+    margin-bottom: 20
