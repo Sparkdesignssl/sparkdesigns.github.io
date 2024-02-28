@@ -88,6 +88,10 @@
         .contact {
             background: #000;
         }
+
+        .hidden {
+            display: none;
+        }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
 </head>
@@ -126,7 +130,7 @@
     </div>
 </section>
 
-<section class="contact" id="contact">
+<section class="contact hidden" id="contact">
     <h2>Contact Us</h2>
     <p>Ready to elevate your brand with our design expertise? Contact us for inquiries and collaborations.</p>
     <div class="contact-info" id="contactInfo">
@@ -136,14 +140,9 @@
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var contactSection = document.getElementById('contact');
-        contactSection.style.display = 'none';
-    });
-
     function toggleContact() {
         var contactSection = document.getElementById('contact');
-        contactSection.style.display = (contactSection.style.display === 'none') ? 'block' : 'none';
+        contactSection.classList.toggle('hidden');
     }
 </script>
 
