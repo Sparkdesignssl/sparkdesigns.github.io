@@ -55,6 +55,8 @@
 
         .logo {
             text-align: center;
+            opacity: 0; /* Initialize opacity to 0 for fade-in effect */
+            transition: opacity 1s ease; /* Add a transition effect */
         }
 
         .logo img {
@@ -78,6 +80,19 @@
             height: auto;
         }
 
+        select {
+            width: 200px; /* Adjust the width as needed */
+            padding: 10px;
+            font-size: 1em;
+            opacity: 0; /* Initialize opacity to 0 for fade-in effect */
+            transform: translateY(-10px);
+            transition: all 0.3s ease; /* Add a transition effect */
+        }
+
+        select:hover {
+            transform: scale(1.05); /* Add a hover effect */
+        }
+
         @media only screen and (max-width: 768px) {
             .navbar {
                 top: 60px;
@@ -91,6 +106,8 @@
         .hero, .services, .contact {
             padding: 50px 20px;
             text-align: center;
+            opacity: 0; /* Initialize opacity to 0 for fade-in effect */
+            transition: opacity 1s ease; /* Add a transition effect */
         }
 
         .hero h1, .services h2, .contact h2 {
@@ -189,6 +206,19 @@
 </section>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add a fade-in effect to the logo and sections
+        document.querySelector('.logo').style.opacity = '1';
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.services').style.opacity = '1';
+        document.querySelector('.contact').style.opacity = '1';
+
+        // Add a fade-in effect to the dropdown
+        var dropdown = document.querySelector('select');
+        dropdown.style.opacity = '1';
+        dropdown.style.transform = 'translateY(0)';
+    });
+
     function toggleMenu() {
         var navbar = document.querySelector('.navbar');
         navbar.classList.toggle('active');
