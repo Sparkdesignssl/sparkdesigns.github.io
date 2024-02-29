@@ -16,43 +16,43 @@
 
         .navbar {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
             padding: 20px;
-            background: transparent; /* Make the navigation bar transparent */
+            background: rgba(0, 0, 0, 0.8); /* Slightly opaque background */
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 0 10px;
             font-size: 1.2em;
             cursor: pointer;
             transition: color 0.3s;
         }
 
         .navbar a:hover {
-            color: #ffcc00; /* Change the color on hover */
+            color: #ffcc00;
         }
 
         .logo img {
-            max-width: 600px; /* Double the size of the logo */
+            max-width: 100%;
             height: auto;
         }
 
         .hero, .services, .contact {
-            padding: 100px 20px;
+            padding: 50px 20px;
             text-align: center;
         }
 
         .hero h1, .services h2, .contact h2 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin: 20px 0;
         }
 
         .hero p, .services p, .contact p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            font-size: 1em;
+            margin-bottom: 20px;
         }
 
         .services {
@@ -60,7 +60,7 @@
         }
 
         .service-item {
-            max-width: 600px;
+            max-width: 100%; /* Adjusted for smaller screens */
             margin: 0 auto 40px;
         }
 
@@ -76,7 +76,7 @@
 
         .contact {
             background: #000;
-            display: none; /* Initially hide the contact section */
+            display: block;
         }
 
         .contact h2 {
@@ -85,7 +85,22 @@
         }
 
         .contact-info {
-            display: none; /* Initially hide the contact info */
+            display: block;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .hero, .services, .contact {
+                padding: 30px 20px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
@@ -94,14 +109,14 @@
 
 <div class="navbar">
     <a href="about.html">About</a>
+    <div class="logo">
+        <img src="sparklogo2.png" alt="Spark Designs Logo">
+    </div>
     <a href="services.html">Services</a>
     <a href="contact.html">Contact Us</a>
 </div>
 
 <section class="hero" id="about">
-    <div class="logo">
-        <img src="sparklogo2.png" alt="Spark Designs Logo">
-    </div>
     <h1>Welcome to Spark Designs</h1>
     <p>Your destination for innovative graphic designs</p>
 </section>
@@ -125,7 +140,6 @@
     </div>
 </section>
 
-
 <section class="contact" id="contact">
     <h2>Contact Us</h2>
     <p>Ready to elevate your brand with our design expertise? Contact us for inquiries and collaborations.</p>
@@ -140,7 +154,6 @@
         var contactSection = document.getElementById('contact');
         var contactInfo = document.getElementById('contactInfo');
         
-        // Toggle the display of the contact section and contact info
         contactSection.style.display = (contactSection.style.display === 'none') ? 'block' : 'none';
         contactInfo.style.display = (contactInfo.style.display === 'none') ? 'block' : 'none';
     }
