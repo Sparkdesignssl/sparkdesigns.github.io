@@ -150,17 +150,6 @@
         <p>Phone: +1 (123) 456-7890</p>
     </div>
 </section>
-<script>
-    window.addEventListener('scroll', function () {
-        var scrollValue = window.scrollY;
-
-        // Parallax effect for the logo
-        document.querySelector('.logo img').style.transform = 'translateY(' + scrollValue * 0.2 + 'px)';
-
-        // Parallax effect for the background image
-        document.body.style.backgroundPositionY = -scrollValue * 0.3 + 'px';
-    });
-</script>
 
 <script>
     function showContact() {
@@ -169,7 +158,15 @@
         
         contactSection.style.display = (contactSection.style.display === 'none') ? 'block' : 'none';
         contactInfo.style.display = (contactInfo.style.display === 'none') ? 'block' : 'none';
-    }
+        window.addEventListener('scroll', function () {
+        var scrollValue = window.scrollY;
+
+        // Parallax effect for the logo
+        document.querySelector('.logo img').style.transform = 'translateY(' + scrollValue * 0.2 + 'px)';
+
+        // Parallax effect for the background image
+        document.body.style.backgroundPositionY = -scrollValue * 0.3 + 'px';
+    });
 </script>
 
 </body>
