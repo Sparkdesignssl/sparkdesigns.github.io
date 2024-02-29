@@ -60,25 +60,35 @@
 
         .menu-icon {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
             position: absolute;
             top: 20px;
             right: 20px;
             z-index: 2;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            transition: background 0.3s;
         }
 
         .menu-icon span {
             display: block;
             width: 30px;
             height: 3px;
-            background: #fff;
+            background: rgba(255, 255, 255, 0.7);
             margin: 6px 0;
             transition: background 0.3s;
         }
 
-        .navbar:hover .menu-icon span {
+        .navbar:hover .menu-icon, .navbar.active .menu-icon {
             background: #ffcc00;
+        }
+
+        .navbar:hover .menu-icon span, .navbar.active .menu-icon span {
+            background: #fff;
         }
 
         .hero, .services, .contact {
@@ -143,7 +153,7 @@
             }
 
             .menu-icon span {
-                background: #fff;
+                background: rgba(255, 255, 255, 0.7);
             }
 
             .navbar.active .menu-icon span:nth-child(1) {
@@ -170,10 +180,13 @@
 </div>
 
 <div class="navbar">
-    <img src="sparklogo.png" alt="Spark Designs Logo" style="max-width: 100%;">
     <a href="about.html" class="menu-item">About</a>
     <a href="services.html" class="menu-item">Services</a>
     <a href="contact.html" class="menu-item">Contact Us</a>
+</div>
+
+<div class="logo">
+    <img src="sparklogo2.png" alt="Spark Designs Logo">
 </div>
 
 <section class="hero" id="about">
