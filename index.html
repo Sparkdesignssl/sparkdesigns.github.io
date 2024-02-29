@@ -24,7 +24,7 @@
             background: rgba(0, 0, 0, 0.8); /* Slightly opaque background */
         }
 
-        .navbar a {
+        .navbar a, .menu-item {
             color: #fff;
             text-decoration: none;
             padding: 10px 20px;
@@ -33,7 +33,7 @@
             transition: color 0.3s;
         }
 
-        .navbar a:hover {
+        .navbar a:hover, .menu-item:hover {
             color: #ffcc00;
         }
 
@@ -61,6 +61,21 @@
             background: #ffcc00;
         }
 
+        .menu-dropdown {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .menu-dropdown.active {
+            display: flex;
+        }
+
         @media only screen and (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -75,11 +90,11 @@
                 display: flex;
             }
 
-            .navbar a:not(.logo) {
+            .navbar a:not(.logo), .menu-dropdown .menu-item {
                 display: none;
             }
 
-            .navbar.active a:not(.logo) {
+            .navbar.active a:not(.logo), .menu-dropdown.active .menu-item {
                 display: block;
                 width: 100%;
                 text-align: center;
@@ -151,7 +166,7 @@
 <body>
 
 <div class="navbar">
-    <a href="about.html">About</a>
+    <a href="about.html" class="menu-item">About</a>
     <div class="logo">
         <img src="sparklogo2.png" alt="Spark Designs Logo">
     </div>
@@ -160,8 +175,13 @@
         <span></span>
         <span></span>
     </div>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="services.html" class="menu-item">Services</a>
+    <a href="contact.html" class="menu-item">Contact Us</a>
+    <div class="menu-dropdown">
+        <a href="about.html" class="menu-item">About</a>
+        <a href="services.html" class="menu-item">Services</a>
+        <a href="contact.html" class="menu-item">Contact Us</a>
+    </div>
 </div>
 
 <section class="hero" id="about">
@@ -208,7 +228,9 @@
 
     function toggleMenu() {
         var navbar = document.querySelector('.navbar');
+        var menuDropdown = document.querySelector('.menu-dropdown');
         navbar.classList.toggle('active');
+        menuDropdown.classList.toggle('active');
     }
 </script>
 
