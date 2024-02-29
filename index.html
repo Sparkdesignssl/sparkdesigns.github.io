@@ -53,42 +53,59 @@
             color: #ffcc00;
         }
 
+        .logo {
+            text-align: center;
+        }
+
         .logo img {
             max-width: 100%;
             height: auto;
         }
 
         .menu-icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 2;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #fff;
-            transition: background 0.3s;
+            display: none;
         }
 
-        .menu-icon span {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.7);
-            margin: 6px 0;
-            transition: background 0.3s;
-        }
+        @media only screen and (max-width: 768px) {
+            .navbar {
+                top: 60px;
+            }
 
-        .navbar:hover .menu-icon, .navbar.active .menu-icon {
-            background: #ffcc00;
-        }
+            .navbar a {
+                margin: 10px 0;
+            }
 
-        .navbar:hover .menu-icon span, .navbar.active .menu-icon span {
-            background: #fff;
+            .menu-icon {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 2;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+
+            .menu-icon span {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background: rgba(255, 255, 255, 0.7);
+                margin: 6px 0;
+                transition: background 0.3s, transform 0.3s;
+            }
+
+            .navbar.active .menu-icon span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .navbar.active .menu-icon span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar.active .menu-icon span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
         }
 
         .hero, .services, .contact {
@@ -139,35 +156,6 @@
             display: block;
         }
 
-        @media only screen and (max-width: 768px) {
-            .menu-icon {
-                position: fixed;
-            }
-
-            .navbar {
-                top: 60px;
-            }
-
-            .navbar a {
-                margin: 10px 0;
-            }
-
-            .menu-icon span {
-                background: rgba(255, 255, 255, 0.7);
-            }
-
-            .navbar.active .menu-icon span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .navbar.active .menu-icon span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .navbar.active .menu-icon span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-        }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
 </head>
