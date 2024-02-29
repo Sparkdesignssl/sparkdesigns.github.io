@@ -17,11 +17,19 @@
         }
 
         .navbar {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .navbar.active {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8); /* Slightly opaque background */
         }
 
         .navbar a, .menu-item {
@@ -31,6 +39,9 @@
             font-size: 1.2em;
             cursor: pointer;
             transition: color 0.3s;
+            display: block;
+            width: 100%;
+            text-align: center;
         }
 
         .navbar a:hover, .menu-item:hover {
@@ -43,9 +54,12 @@
         }
 
         .menu-icon {
-            display: none;
+            display: flex;
             flex-direction: column;
             cursor: pointer;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
         .menu-icon span {
@@ -59,58 +73,6 @@
 
         .navbar:hover .menu-icon span {
             background: #ffcc00;
-        }
-
-        .menu-dropdown {
-            display: none;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 5px;
-            padding: 10px;
-        }
-
-        .menu-dropdown.active {
-            display: flex;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .navbar a {
-                margin: 10px 0;
-            }
-
-            .menu-icon {
-                display: flex;
-            }
-
-            .navbar a:not(.logo), .menu-dropdown .menu-item {
-                display: none;
-            }
-
-            .navbar.active a:not(.logo), .menu-dropdown.active .menu-item {
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-
-            .navbar.active .menu-icon span:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .navbar.active .menu-icon span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .navbar.active .menu-icon span:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
         }
 
         .hero, .services, .contact {
@@ -160,28 +122,51 @@
         .contact-info {
             display: block;
         }
+
+        @media only screen and (max-width: 768px) {
+            .menu-icon {
+                position: fixed;
+            }
+
+            .navbar {
+                top: 60px;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .menu-icon span {
+                background: #fff;
+            }
+
+            .navbar.active .menu-icon span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .navbar.active .menu-icon span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar.active .menu-icon span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
 </head>
 <body>
 
+<div class="menu-icon" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
 <div class="navbar">
     <a href="about.html" class="menu-item">About</a>
-    <div class="logo">
-        <img src="sparklogo2.png" alt="Spark Designs Logo">
-    </div>
-    <div class="menu-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
     <a href="services.html" class="menu-item">Services</a>
     <a href="contact.html" class="menu-item">Contact Us</a>
-    <div class="menu-dropdown">
-        <a href="about.html" class="menu-item">About</a>
-        <a href="services.html" class="menu-item">Services</a>
-        <a href="contact.html" class="menu-item">Contact Us</a>
-    </div>
 </div>
 
 <section class="hero" id="about">
@@ -219,18 +204,13 @@
 
 <script>
     function showContact() {
-        var contactSection = document.getElementById('contact');
-        var contactInfo = document.getElementById('contactInfo');
-        
-        contactSection.style.display = (contactSection.style.display === 'none') ? 'block' : 'none';
-        contactInfo.style.display = (contactInfo.style.display === 'none') ? 'block' : 'none';
+        var navbar = document.querySelector('.navbar');
+        navbar.classList.remove('active');
     }
 
     function toggleMenu() {
         var navbar = document.querySelector('.navbar');
-        var menuDropdown = document.querySelector('.menu-dropdown');
         navbar.classList.toggle('active');
-        menuDropdown.classList.toggle('active');
     }
 </script>
 
